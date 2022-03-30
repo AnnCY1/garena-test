@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Animate</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+
+<body>
+    <div id="CssAnimate">
+        <css-animate></css-animate>
+    </div>
+</body>
+
+<script type="text/javascript">
+    
+    new Vue({
+        el: '#CssAnimate',
+        template: `
+        <div class="wrapper">
+            <div class="mask">
+                <div class="tipImg">
+                  <img src="../assets/scape.png" alt="Horizontal Mobile">
+                </div>
+            </div>
+        </div>`
+        
+    })
+</script>
+
+    <style>
+          * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+        }
+        .mask {
+            /* 防止占位影响其他元素 */
+            position: absolute;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .tipImg>img {
+            /* 使用绝对定位使动画脱离文档流 提升一点加载性能 */
+            position: absolute;
+            width: 220px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            display: none;
+        }
+        @keyframes horizontal {
+            from {
+                transform: translate(-50%, -50%) rotate(-90deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+
+        @media screen and (max-width:425px) {
+            .mask {
+                visibility: visible
+            }
+            .tipImg>img {
+                display: block;
+                animation: horizontal 1s  0.5s ease-in-out infinite alternate ;
+            }
+        }
+    </style>
+
+</html>

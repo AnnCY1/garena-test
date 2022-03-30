@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Media-Queries</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div>img{
+            width: 100vw;
+            display: none;
+        }
+        @media screen and (max-width:767px){
+            .imgContainer .moblieShow{
+                display: inline-block;
+            }
+        }
+        @media screen and (min-width:768px) and (max-width:1023px){
+            .imgContainer .ipadShow{
+                display: inline-block;
+            }
+        }
+        @media screen and (min-width:1024px) {
+            .imgContainer .pcShow{
+                 display: inline-block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="imgContainer">
+            <img class="pcShow" src="../assets/PC.jpg" alt="Role Display">
+            <img class="ipadShow" src="../assets/ipad.jpg" alt="Role Display">
+            <img class="moblieShow" src="../assets/moblie.png" alt="Role Display">
+        </div>
+    </div>
+
+</body>
+</html>
+
